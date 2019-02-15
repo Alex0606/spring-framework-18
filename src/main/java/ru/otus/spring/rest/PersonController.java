@@ -25,16 +25,6 @@ public class PersonController {
         return repository.findById(id);
     }
 
-    @GetMapping("/person/byname")
-    public Flux<Person> byName(@RequestParam("name") String lastName) {
-        return repository.findAllByLastName(lastName);
-    }
-
-    @GetMapping("/person/byage")
-    public Flux<Person> byAge(@RequestParam int age) {
-        return repository.findAllByAge(age);
-    }
-
     @PostMapping("/person")
     public Mono<Person> save(@RequestBody Mono<Person> dto) {
         return repository.save(dto);
